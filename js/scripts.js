@@ -26,6 +26,10 @@ $(document).ready(function() {
 
     var deletedLetters = letterDelete(stringArray, deleteArray);
 
+    $("#inputStringHere").text(stringArray);
+    $("#removeLetters").text(deleteArray);
+    $("#deletedStringHere").text(deletedLetters);
+
     console.log(stringArray);
     console.log(deleteArray);
     console.log(deletedLetters);
