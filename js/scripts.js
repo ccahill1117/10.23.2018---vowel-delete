@@ -2,10 +2,10 @@ function splitString(stringToSplit, separator) {
     return (stringToSplit.split(separator));
   }
 
-function letterDelete(inputArray, vowelArray) {
+function letterDelete(inputArray, deleteArrayFunc) {
   var returnArray = [];
   for (var i = 0; i <= (inputArray.length)-1; i++) {
-    if (vowelArray.includes(inputArray[i]))
+    if (deleteArrayFunc.includes(inputArray[i]))
     {
     returnArray.push("-")
     }
@@ -18,6 +18,11 @@ function letterDelete(inputArray, vowelArray) {
 $(document).ready(function() {
   $("form#formSubmit").submit(function(event) {
     event.preventDefault();
+
+    $("#inputStringHere").empty();
+    $("#removeLetters").empty();
+    $("#deletedStringHere").empty();
+
     var inputString = $("#stringInput").val();
     var deleteString = $("#letterInput").val();
 
@@ -26,9 +31,9 @@ $(document).ready(function() {
 
     var deletedLetters = letterDelete(stringArray, deleteArray);
 
-    $("#inputStringHere").text(stringArray);
-    $("#removeLetters").text(deleteArray);
-    $("#deletedStringHere").text(deletedLetters);
+    $("#inputStringHere").append(stringArray);
+    $("#removeLetters").append(deleteArray);
+    $("#deletedStringHere").append(deletedLetters);
 
     console.log(stringArray);
     console.log(deleteArray);
